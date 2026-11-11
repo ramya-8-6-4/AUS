@@ -1,0 +1,18 @@
+#include <Adafruit_Sensor.h> 
+#include <DHT.h> 
+#include <DHT_U.h> 
+DHT Sensor(3, DHT22); 
+void setup() { 
+Sensor.begin(); 
+Serial.begin(9600); 
+} 
+void loop() { 
+float tempr = Sensor.readTemperature(); 
+Serial.print("Temperature = "); 
+Serial.print(tempr); 
+Serial.print(", "); 
+delay(1000); 
+float humid = Sensor.readHumidity(); 
+Serial.print("Humidity = "); 
+Serial.println(humid); 
+}
